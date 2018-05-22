@@ -2,9 +2,11 @@
   <div class="contextual">
     <% if User.current.admin? %>
     <%= link_to "Create Link", new_quick_link_path, :class => 'icon icon-add' %>
+    <%= link_to l(:label_settings), quick_links_path, :class => 'icon icon-settings' %>
+
     <% end %>
   </div>
-  <h3><%= l(:label_quick_actions) %></h3>
+  <h3><%= l(:label_quick_link_plural) %></h3>
 
 <ul style="list-style:none;">
   <% QuickLink.all.each do |link| %>
