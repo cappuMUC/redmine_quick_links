@@ -1,4 +1,29 @@
 <h2>Quick Links</h2>
 <div class="contextual">
-  <a href="#" class="icon icon-add">New Link</a>
+  <%= link_to "Create Link", new_quick_link_path, :class => 'icon icon-add' %>
 </div>
+
+<table class="list">
+  <thead>
+    <tr>
+      <td>Label</td>
+      <td>Description</td>
+      <td>Hyperlink</td>
+      <td>Project ID</td>
+      <td>Role ID</td>
+      <td>Icon</td>
+  </thead>
+  <tbody>
+    <% QuickLink.all.each do |link| %>
+    <tr>
+      <td><%= link.label %></td>
+      <td><%= link.description %></td>
+      <td><%= link_to( link.link, link.link ) %></td>
+      <td><%= link.project_id %></td>
+      <td><%= link.role_id %></td>
+      <td><%= link.icon_class %></td>
+    </tr>
+    <% end %>
+  </tbody>
+
+</table>
