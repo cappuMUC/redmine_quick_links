@@ -1,3 +1,4 @@
+require_dependency 'quick_links_hooks'
 Redmine::Plugin.register :redmine_quick_links do
   name 'Redmine Quick Links plugin'
   author 'Bernhard Rohloff'
