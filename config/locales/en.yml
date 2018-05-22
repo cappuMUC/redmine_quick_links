@@ -1,3 +1,6 @@
 # English strings go here for Rails i18n
 en:
-   label_quick_actions: "Quick Links"
+   label_quick_link_plural: "Quick Links"
+   label_new_quick_link: "New link"
+
+   error_can_not_remove_quick_link: "Link can not be deleted."

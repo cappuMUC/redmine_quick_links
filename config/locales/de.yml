@@ -1,3 +1,6 @@
 # Deutsche Textbausteile für Rails i18n
 de:
-   label_quick_actions: "Schnelle Aktionen"
+   label_quick_link_plural: "Schnelleinstieg"
+   label_new_quick_link: "Neuer Link"
+
+   error_can_not_remove_quick_link: "Link kann nicht gelöscht werden."
