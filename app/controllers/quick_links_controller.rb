@@ -7,6 +7,10 @@ class QuickLinksController < ApplicationController
     @quick_link = QuickLink.new
   end
 
+  def show
+    @quick_link = QuickLink.find params[:id]
+  end
+
   def create
     params.permit!
     @quick_link = QuickLink.new( quick_link_params )
@@ -15,6 +19,16 @@ class QuickLinksController < ApplicationController
     else
       render :action => 'new'
     end
+  end
+
+  def destroy
+    @quick_link = QuickLink.find params[:id]
+    begin
+      @quick_link.destroy
+    rescue
+      flash[:error] =  l(:error_can_not_remove_quick_link)
+    end
+    redirect_to quick_links_path
   end
 
   private
