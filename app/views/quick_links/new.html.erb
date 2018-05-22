@@ -1,0 +1,31 @@
+<h2>Create Quick Link</h2>
+
+<%= form_for(@quick_link) do |f| %>
+  <p>
+    <%= f.label :label %><br />
+    <%= f.text_field :label %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <%= f.label :link %><br />
+    <%= f.text_field :link %>
+  </p>
+  <p>
+    <%= f.label :project_id %><br />
+    <%= f.text_field :project_id %>
+  </p>
+  <p>
+    <%= f.label :role_id %><br />
+    <%= f.text_field :role_id %>
+  </p>
+  <p>
+    <%= f.label :icon_class %><br />
+    <%= f.text_field :icon_class %>
+  </p>
+  <p>
+    <%= f.submit "Create" %> <%= link_to t(:button_cancel), quick_links_path %>
+  </p>
+<% end %>
