@@ -1,6 +1,6 @@
 <h2>Create Quick Link</h2>
-
 <%= form_for(@quick_link) do |f| %>
+<div class="box tabular">
   <p>
     <%= f.label :label %><br />
     <%= f.text_field :label %>
@@ -27,7 +27,9 @@
     <%= f.label :icon_class %><br />
     <%= f.text_field :icon_class %>
   </p>
-  <p>
-    <%= f.submit "Create" %> <%= link_to t(:button_cancel), quick_links_path %>
-  </p>
+</div>
+
+<p>
+  <%= f.submit "Create" %> <%= link_to t(:button_cancel), quick_links_path %>
+</p>
 <% end %>
