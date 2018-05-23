@@ -2,6 +2,7 @@ class QuickLinksController < ApplicationController
   layout 'admin'
   self.main_menu = false
 
+  before_action :require_admin, :except => :show
 
   def new
     @quick_link = QuickLink.new
