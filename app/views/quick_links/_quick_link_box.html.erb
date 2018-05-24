@@ -1,24 +1,22 @@
-<% if User.current.logged? %>
 <div class="box">
   <div class="contextual">
     <% if User.current.admin? %>
     <%= link_to "Create Link", new_quick_link_path, :class => 'icon icon-add' %>
     <%= link_to l(:label_settings), quick_links_path, :class => 'icon icon-settings' %>
-
     <% end %>
   </div>
   <h3><%= l(:label_quick_link_plural) %></h3>
-
-<% User.current.project_ids.each do |project_id| %>
-    <% @links = QuickLink.where( :project_id => project_id, :role_id => User.current.membership(project_id).roles.to_a) %>
-    <% if @links.any? %>
-    <h4><%= Project.find(project_id).name %></h4>
-    <ul style="list-style:none;">
-      <% @links.each do |link| %>
-        <li><%= link_to(link.label, link.url, :title => link.description, :class => "icon #{link.icon_class}" ) %></li>
-      <% end %>
-    </ul>
+  <% if project_links.any? %>
+  <% User.current.project_ids.each do |project_id| %>
+  <% @links = project_links.select { |link| link.project_id == project_id } %>
+  <%if @links.any? %>
+  <h4><%= Project.find(project_id).name %></h4>
+  <ul style="list-style:none;">
+    <% @links.each do |link| %>
+    <li><%= link_to(link.label, link.url, :title => link.description, :class => "icon #{link.icon_class}" ) %></li>
     <% end %>
+  </ul>
+  <% end %>
+  <% end %>
   <% end %>
 </div>
-<% end %>
