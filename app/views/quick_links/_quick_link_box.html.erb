@@ -1,10 +1,4 @@
 <div class="box">
-  <div class="contextual">
-    <% if User.current.admin? %>
-    <%= link_to "Create Link", new_quick_link_path, :class => 'icon icon-add' %>
-    <%= link_to l(:label_settings), quick_links_path, :class => 'icon icon-settings' %>
-    <% end %>
-  </div>
   <h3><%= l(:label_quick_link_plural) %></h3>
   <% if project_links.any? %>
   <% User.current.project_ids.each do |project_id| %>
