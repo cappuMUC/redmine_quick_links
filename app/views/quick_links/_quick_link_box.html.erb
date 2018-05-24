@@ -15,7 +15,7 @@
     <h4><%= Project.find(project_id).name %></h4>
     <ul style="list-style:none;">
       <% @links.each do |link| %>
-        <li><%= link_to(link.label, link.url, :class => "icon #{link.icon_class}" ) %></li>
+        <li><%= link_to(link.label, link.url, :title => link.description, :class => "icon #{link.icon_class}" ) %></li>
       <% end %>
     </ul>
     <% end %>
