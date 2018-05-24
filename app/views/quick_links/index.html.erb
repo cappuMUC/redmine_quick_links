@@ -5,25 +5,29 @@
 <table class="list">
   <thead>
     <tr>
+      <th>Icon</th>
       <th>Label</th>
       <th>Description</th>
       <th>Hyperlink</th>
       <th>Project</th>
       <th>Role</th>
-      <th>Icon</th>
+
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% QuickLink.all.each do |link| %>
     <tr>
+      <td><%= link_to("", "#", :class => "icon-only #{link.icon_class}" ) %></td>
       <td><%= link.label %></td>
       <td><%= link.description %></td>
       <td><%= link_to( link.link, link.link ) %></td>
       <td><%= Project.find_by(id: link.project_id).name %></td>
       <td><%= Role.find_by(id: link.role_id).name %></td>
-      <td><%= link_to("", "#", :class => "icon-only #{link.icon_class}" ) %></td>
-      <td><%= delete_link quick_link_path(link) %></td>
+      <td class="buttons" >
+        <%= link_to(l(:button_edit), edit_quick_link_path(link), :class => 'icon icon-edit') %>
+        <%= delete_link quick_link_path(link) %>
+      </td>
     </tr>
     <% end %>
   </tbody>
