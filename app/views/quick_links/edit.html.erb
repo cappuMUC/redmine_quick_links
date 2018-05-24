@@ -1,0 +1,6 @@
+<%= labelled_form_for @quick_link, :html => { :id => 'quick_link', :multipart => true, :method => :put } do |f| %>
+<%= render :partial => 'form', :locals => { :f => f }%>
+<p>
+  <%= submit_tag l(:button_save) %> <%= link_to t(:button_cancel), quick_links_path %>
+</p>
+<% end %>
