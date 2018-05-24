@@ -21,7 +21,7 @@
       <td><%= link_to("", "#", :class => "icon-only #{link.icon_class}" ) %></td>
       <td><%= link.label %></td>
       <td><%= link.description %></td>
-      <td><%= link_to( link.link, link.link ) %></td>
+      <td><%= link_to( link.url, link.url ) %></td>
       <td><%= Project.find_by(id: link.project_id).name %></td>
       <td><%= Role.find_by(id: link.role_id).name %></td>
       <td class="buttons" >

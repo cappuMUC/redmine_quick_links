@@ -3,7 +3,7 @@ class CreateQuickLinks < ActiveRecord::Migration[5.1]
     create_table :quick_links do |t|
       t.string :label
       t.text :description
-      t.text :link
+      t.text :url
       t.string :icon_class
       t.integer :project_id
       t.integer :role_id

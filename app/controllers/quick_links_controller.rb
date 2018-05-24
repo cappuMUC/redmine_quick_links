@@ -49,6 +49,6 @@ class QuickLinksController < ApplicationController
 
   def quick_link_params
     puts
-    params.require( :quick_link ).permit( :label, :description, :link, :project_id, :role_id, :icon_class )
+    params.require( :quick_link ).permit( :label, :description, :url, :project_id, :role_id, :icon_class )
   end
 end
