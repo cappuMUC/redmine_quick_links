@@ -22,8 +22,8 @@
       <td><%= link.label %></td>
       <td><%= link.description %></td>
       <td><%= link_to( link.url, link.url ) %></td>
-      <td><%= Project.find_by(id: link.project_id).name %></td>
-      <td><%= Role.find_by(id: link.role_id).name %></td>
+      <td><%= Project.find_by(id: link.project_id).name unless ( link.project_id == nil ) %></td>
+      <td><%= Role.find_by(id: link.role_id).name unless ( link.role_id == nil ) %></td>
       <td class="buttons" >
         <%= link_to(l(:button_edit), edit_quick_link_path(link), :class => 'icon icon-edit') %>
         <%= delete_link quick_link_path(link) %>

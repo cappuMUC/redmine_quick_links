@@ -1,5 +1,13 @@
 <div class="box">
   <h3><%= l(:label_quick_link_plural) %></h3>
+  <% if public_links.any? %>
+  <ul style="list-style:none;">
+  <%public_links.each do |link| %>
+  <li><%= link_to(link.label, link.url, :title => link.description, :class => "icon #{link.icon_class}" ) %></li>
+  <% end %>
+</ul>
+  <% end %>
+
   <% if project_links.any? %>
   <% User.current.project_ids.each do |project_id| %>
   <% @links = project_links.select { |link| link.project_id == project_id } %>

@@ -13,13 +13,13 @@
   </p>
   <p>
     <%= f.label :project_id %><br />
-    <%= f.collection_select(:project_id, Project.all, :id, :name) %>
+    <%= f.collection_select(:project_id, Project.all, :id, :name, include_blank: "Global" ) %>
 
   </p>
 
   <p>
     <%= f.label :role_id %><br />
-    <%= f.collection_select(:role_id, Role.all, :id, :name) %>
+    <%= f.collection_select(:role_id, Role.all, :id, :name, include_blank: "Any") %>
   </p>
   <p>
     <%= f.label :icon_class %><br />
