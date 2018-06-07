@@ -11,8 +11,10 @@
   <% if project_links.any? %>
   <% User.current.project_ids.each do |project_id| %>
   <% @links = project_links.select { |link| link.project_id == project_id } %>
-  <%if @links.any? %>
+  <% if @links.any? %>
+  <% if show_project_headings %>
   <h4><%= Project.find(project_id).name %></h4>
+  <% end %>
   <ul style="list-style:none;">
     <% @links.each do |link| %>
     <li><%= link_to(link.label, link.url, :title => link.description, :class => "icon #{link.icon_class}" ) %></li>
