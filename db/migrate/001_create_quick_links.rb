@@ -1,4 +1,4 @@
-class CreateQuickLinks < ActiveRecord::Migration
+class CreateQuickLinks < ActiveRecord::Migration[5.1]
   def change
     create_table :quick_links do |t|
       t.string :label
@@ -7,6 +7,7 @@ class CreateQuickLinks < ActiveRecord::Migration
       t.string :icon_class
       t.integer :project_id
       t.integer :role_id
+      t.integer :position, :default => 1
     end
   end
 end

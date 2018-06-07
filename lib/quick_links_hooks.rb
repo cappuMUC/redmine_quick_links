@@ -18,7 +18,8 @@ module RedmineQuickLinks
       private
 
       def collect_global_links_for_context(context)
-        context[:public_links] = QuickLink.where( :project_id => nil, :role_id => nil )
+        public_links = QuickLink.where( :project_id => nil, :role_id => nil )
+        context[:public_links] = public_links.sort_by{|e| e[:position]}
       end
 
       def collect_project_links_for_context(context)
@@ -28,7 +29,7 @@ module RedmineQuickLinks
           project_links.concat QuickLink.where( :project_id => project, :role_id => roles )
           project_links.concat QuickLink.where( :project_id => project, :role_id => nil )
         end
-        context[:project_links] = project_links
+        context[:project_links] = project_links.sort_by{|e| e[:position]}
       end
 
       def context_has_links_to_show?(context)

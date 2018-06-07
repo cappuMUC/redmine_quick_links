@@ -2,7 +2,7 @@
   <%= link_to l(:label_new_quick_link), new_quick_link_path, :class => 'icon icon-add' %>
 </div>
 <h2>Quick Links</h2>
-<table class="list">
+<table class="list quick_links">
   <thead>
     <tr>
       <th>Icon</th>
@@ -16,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <% QuickLink.all.each do |link| %>
+    <% for link in @quick_links  %>
     <tr>
       <td><%= link_to("", "#", :class => "icon-only #{link.icon_class}" ) %></td>
       <td><%= link.label %></td>
@@ -25,6 +25,7 @@
       <td><%= Project.find_by(id: link.project_id).name unless ( link.project_id == nil ) %></td>
       <td><%= Role.find_by(id: link.role_id).name unless ( link.role_id == nil ) %></td>
       <td class="buttons" >
+        <%= reorder_handle(link) %>
         <%= link_to(l(:button_edit), edit_quick_link_path(link), :class => 'icon icon-edit') %>
         <%= delete_link quick_link_path(link) %>
       </td>
@@ -32,3 +33,7 @@
     <% end %>
   </tbody>
 </table>
+
+<%= javascript_tag do %>
+  $(function() { $("table.quick_links tbody").positionedItems(); });
+<% end %>

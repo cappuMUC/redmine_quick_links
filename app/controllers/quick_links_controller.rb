@@ -9,6 +9,10 @@ class QuickLinksController < ApplicationController
     @quick_link = QuickLink.new
   end
 
+  def index
+    @quick_links = QuickLink.sorted.to_a
+  end
+
   def show
   end
 
@@ -24,6 +28,7 @@ class QuickLinksController < ApplicationController
 
   def destroy
     begin
+      @quick_link = QuickLink.find(params[:id])
       @quick_link.destroy
     rescue
       flash[:error] =  l(:error_can_not_remove_quick_link)
@@ -35,20 +40,32 @@ class QuickLinksController < ApplicationController
   end
 
   def update
+    @quick_link = QuickLink.find(params[:id])
     @quick_link.update_attributes quick_link_params
-    puts params[:quick_link].to_s
+    puts "Quick Link: " + @quick_link.label.to_s
+    puts "Parameters: " + params[:quick_link].to_s
     if @quick_link.save
-      redirect_to quick_links_path
+      respond_to do |format|
+        format.html {
+          flash[:notice] = l(:notice_successful_update)
+          redirect_to quick_links_path
+        }
+        format.js { head 200 }
+      end
     else
-      render :action => 'edit'
+      respond_to do |format|
+        format.html{ render :action => 'edit' }
+        format.js {head 422}
+      end
     end
   end
+
 
 
   private
 
   def quick_link_params
     puts
-    params.require( :quick_link ).permit( :label, :description, :url, :project_id, :role_id, :icon_class )
+    params.require( :quick_link ).permit( :label, :description, :url, :project_id, :role_id, :icon_class, :position )
   end
 end
