@@ -6,7 +6,7 @@ Or you have a special project help page and your project members should be able 
 ![Welcome page view](screenshots/welcome-page.png)
 
 ## How it works
-The Quick Links plugin adds a new view to Redmine's administration panel. On this view all your created links are listed and you can sort them to your needs. You can also edit or delete existing links on this view. To create a new Link click on "New link" in the contexual menu section.
+The Quick Links plugin adds a new view to Redmine's administration panel. On this view all your created links are listed and you can sort them to your needs. But keep in mind, if a link has project permissions set it's moved to its own section on the welcome page. You can also edit or delete existing links on this view. To create a new Link click on "New link" in the contexual menu section.
 
 ![Admin panel view](screenshots/admin-panel.png)
 
@@ -20,7 +20,7 @@ The form fields are:
 - **icon-class** If you would like to show an icon next to your link you can specify the CSS class here.
 
 ### Global links
-By letting the Project and Role fields empty you can create links without project or role restrictions. These links are shown to every logged user and are only available on he welcome page.
+By letting the Project and Role fields empty you can create links without project relations. These links are shown to every logged user and are only available on he welcome page.
 
 ### Prefilled issue form
 This is not a plugin specific feature but a small hint to a nice Redmine feature. You can prefill your issue form by passing additional arguments to the URL. E.g to preselect a specific tracker id one can write the url like this `http://your.redmine.domain/projects/your-project/issues/new?issue[tracker_id]=2` so your users don't need to select the tracker when multiple options are available.
