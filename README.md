@@ -2,7 +2,7 @@
 A plugin for Redmine which adds quick links to the welcome page and project overview page.
 It allows quick access to URLs not only for places inside Redmine but also for external sites.
 For example you can use it to give your users a direct link to a prefilled issue form to file a new bug or create a todo.
-Or you have a special project help page and your project members should be able to access is directly from the overview. One can restrict the access to links by project membership and roles so every user gets just the links he needs. 
+Or you have a special project help page and your project members should be able to access it directly from the overview. One can restrict the access to links by project membership and roles so every user gets just the links he needs. 
 ![Welcome page view](screenshots/welcome-page.png)
 
 ## How it works
