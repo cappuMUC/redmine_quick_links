@@ -20,7 +20,7 @@ The form fields are:
 - **icon-class** If you would like to show an icon next to your link you can specify the CSS class here.
 
 ### Global links
-By letting the Project and Role fields empty you can create links without project relations. These links are shown to every logged user and are only available on the welcome page.
+By leaving the Project and Role fields empty you can create links without project relations. These links are shown to every registered user and are only available on the welcome page.
 
 ### Prefilled issue form
 This is not a plugin specific feature but a small hint to a nice Redmine feature. You can prefill your issue form by passing additional arguments to the URL. E.g to preselect a specific tracker id one can write the url like this `http://your.redmine.domain/projects/your-project/issues/new?issue[tracker_id]=2` so your users don't need to select the tracker when multiple options are available.
